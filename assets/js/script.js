@@ -1,4 +1,5 @@
 var cityInputEl = document.querySelector("#cityInput");
+var cityButtonEl = document.querySelector("#cityButton");
 
 var cityInputGetter = function(event) {
     event.preventDefault();
@@ -6,4 +7,4 @@ var cityInputGetter = function(event) {
     console.log(text);
 }
 
-cityInputEl.addEventListener("click", cityInputGetter);
+cityButtonEl.addEventListener("click", cityInputGetter);
