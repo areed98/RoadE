@@ -13,6 +13,25 @@
     
 } */
 
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#test {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#test2 {
+    flex: 1;
+}
+
 #calendar-box{
     width: 100%;
     height: 100vh;
@@ -100,7 +119,6 @@
 .next-date{
     opacity: 0.5;
 }
-
 /* .today{ */
     /* background-color: bisque; */
 /* } */
