@@ -5,13 +5,32 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-/* .hero{
+.hero{
      background-image: url('../images/herobackground-raincoat.jpg'); 
-     background-repeat: no-repeat;
      background-size: cover;
-     background-position: ;
+     background-position: 20%;
+     
     
-} */
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#test {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#test2 {
+    flex: 1;
+}
 
 #calendar-box{
     width: 100%;
@@ -100,9 +119,7 @@
 .next-date{
     opacity: 0.5;
 }
-
 /* .today{ */
     /* background-color: bisque; */
 /* } */
-
 

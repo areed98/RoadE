@@ -18,91 +18,119 @@
 <body>
     <!-- main page container -->
     <div class="container">
+        <!-- hero/title -->
         <div class="block">
-            <section class="hero is-medium is-info">
+            <section class="hero is-large is-info">
                 <div class="hero-body">
                     <p class="title">
-                        rainCOATE
+                        rainCOAT
                     </p>
                     <p class="subtitle">
-                        Concerts...Outdoors...Anywhere...Together...Events
+                        Lets plan your next live event!
                     </p>
                 </div>
             </section>
         </div>
-
+        <!-- bio -->
         <div class="block ">
-            <article class="message is-success has-text-centered">
-                <div class="message-header">
+            <article class="message is-success">
+                <div class="message-header has-text-centered">
                     <p>about us</p>
                 </div>
                 <div class="message-body is-light">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, suscipit?
                 </div>
             </article>
-
-            <div class="block ">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <p class="title">Where to go, What to do?</p>
-                        <form>
-                            <div class="field has-addons">
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Desired Location">
-                                </div>
-                                <div class="control">
-                                    <a class="button is-info">
-                                        Search
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="field has-addons">
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Music? Sports?">
-                                </div>
-                                <div class="control">
-                                    <a class="button is-info">
-                                        Search
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="field has-addons">
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Favorite Artist?">
-                                </div>
-                                <div class="control">
-                                    <a class="button is-info">
-                                        Search
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
-                    </article>
-                </div>
-
-                <div class="tile is-parent is-8">
-                    <article class="tile is-child box">
-                        <p class="title">Upcoming Events</p>
-                </div>
-            </div>
-            </article>
+        </div>
+        
+        <div class="block ">
+            <!-- dropdown menu -->
+            
+              <!-- search bar -->
+            <section class="container is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center">
+                <form>
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Search">
+                        </div>
+                        <div class="control">
+                            <a class="button is-info">
+                                Search
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <div class="dropdown is-hoverable">
+                    <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                        <span>More Options</span>
+                        <span class="icon is-small">
+                          <i aria-hidden="true"></i>
+                        </span>
+                      </button>
+                      <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                        <div class="dropdown-content">
+                          <a href="#" class="dropdown-item">
+                            Overview
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            Modifiers
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            Grid
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            Form
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            Elements
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            Components
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            Layout
+                          </a>
+                          <hr class="dropdown-divider">
+                          <a href="#" class="dropdown-item">
+                            More
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+            </section>
+        </div>
+        <!-- results list -->
+        <div class="block">
+            <section class="container box">
+                <p class="title">Upcoming Events</p>
+            </section>
+            <ul id="display-events">
+                <li><a href="/">...</a></li>
+                <li><a href="/">...</a></li>
+                <li><a href="/">...</a></li>
+                <li><a href="/">...</a></li>
+                <li><a href="/">...</a></li>
+                <li><a href="/">...</a></li>
+            </ul>
         </div>
 
 
 
-        <footer class="footer ">
-            <div class="content has-text-centered">
-                <p>
-                    <strong>rainCOATE</strong> by <a href="https://jgthms.com">Silent Dragons</a>. The source code is
-                    licensed
-                    <a href="/"></a>. The website content
-                    is licensed <a href="/"></a>.
-                </p>
-            </div>
-        </footer>
+    <!-- footer with links -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>rainCOATE</strong> by <a href="https://jgthms.com">Silent Dragons</a>. The source code is
+                licensed
+                <a href="/"></a>. The website content
+                is licensed <a href="/"></a>.
+            </p>
+        </div>
+    </footer>
     </div>
-
 </body>
 
 </html>
