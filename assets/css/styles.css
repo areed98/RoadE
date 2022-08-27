@@ -5,13 +5,13 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-/* .hero{
+.hero{
      background-image: url('../images/herobackground-raincoat.jpg'); 
      background-repeat: no-repeat;
      background-size: cover;
-     background-position: ;
+     background-position: 10%;
     
-} */
+}
 
 html {
     height: 100%;
