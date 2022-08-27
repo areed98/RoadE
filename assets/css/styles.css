@@ -123,3 +123,9 @@ body {
     /* background-color: bisque; */
 /* } */
 
+#display-events{}
+
+li { 
+    border: 1px solid black;
+    border-radius: 10%;
+}

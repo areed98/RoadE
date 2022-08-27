@@ -2,135 +2,192 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <title>rainCoate</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <title>rainCoate</title>
 </head>
 
 <body>
-    <!-- main page container -->
-    <div class="container">
-        <!-- hero/title -->
-        <div class="block">
-            <section class="hero is-large is-info">
-                <div class="hero-body">
-                    <p class="title">
-                        rainCOAT
-                    </p>
-                    <p class="subtitle">
-                        Lets plan your next live event!
-                    </p>
-                </div>
-            </section>
+  <!-- main page container -->
+  <div class="container">
+    <!-- hero/title -->
+    <div class="block">
+      <section class="hero is-large is-info">
+        <div class="hero-body">
+          <p class="title">
+            rainCOAT
+          </p>
+          <p class="subtitle">
+            Lets plan your next live event!
+          </p>
         </div>
-        <!-- bio -->
-        <div class="block ">
-            <article class="message is-success">
-                <div class="message-header has-text-centered">
-                    <p>about us</p>
-                </div>
-                <div class="message-body is-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, suscipit?
-                </div>
-            </article>
+      </section>
+    </div>
+    <!-- bio -->
+    <div class="block ">
+      <article class="message is-success">
+        <div class="message-header has-text-centered">
+          <p>about us</p>
         </div>
+        <div class="message-body is-light">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, suscipit?
+        </div>
+      </article>
+    </div>
+
+    <div class="block ">
+      <!-- dropdown menu -->
+
+      <!-- search bar -->
+      <section
+        class="container is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center">
+        <form>
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" placeholder="Search">
+            </div>
+            <div class="control">
+              <a class="button is-info">
+                Search
+              </a>
+            </div>
+          </div>
+        </form>
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+              <span>Search by Category</span>
+              <span class="icon is-small">
+                <i aria-hidden="true"></i>
+              </span>
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                  Overview
+                </a>
+                <a href="#" class="dropdown-item">
+                  Modifiers
+                </a>
+                <a href="#" class="dropdown-item">
+                  Grid
+                </a>
+                <a href="#" class="dropdown-item">
+                  Form
+                </a>
+                <a href="#" class="dropdown-item">
+                  Elements
+                </a>
+                <a href="#" class="dropdown-item">
+                  Components
+                </a>
+                <a href="#" class="dropdown-item">
+                  Layout
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item">
+                  More
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+    
+    <div class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center">
+      <section class="sports-news tile is-justify-content-space-evenly is-flex-direction-column">
+        <h1 class="has-text-centered"><strong>Sports News</strong></h1>
+        <figure class="image has-text-centered">
+          <img src="./assets/images/raincoat.jpeg">
+          <a href="https://www.espn.com/">ESPN News</a>
+        </figure>
         
-        <div class="block ">
-            <!-- dropdown menu -->
-            
-              <!-- search bar -->
-            <section class="container is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center">
-                <form>
-                    <div class="field has-addons">
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Search">
-                        </div>
-                        <div class="control">
-                            <a class="button is-info">
-                                Search
-                            </a>
-                        </div>
-                    </div>
-                </form>
-                <div class="dropdown is-hoverable">
-                    <div class="dropdown-trigger">
-                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-                        <span>More Options</span>
-                        <span class="icon is-small">
-                          <i aria-hidden="true"></i>
-                        </span>
-                      </button>
-                      <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-                        <div class="dropdown-content">
-                          <a href="#" class="dropdown-item">
-                            Overview
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            Modifiers
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            Grid
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            Form
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            Elements
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            Components
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            Layout
-                          </a>
-                          <hr class="dropdown-divider">
-                          <a href="#" class="dropdown-item">
-                            More
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-            </section>
-        </div>
-        <!-- results list -->
-        <div class="block">
-            <section class="container box">
-                <p class="title">Upcoming Events</p>
-            </section>
-            <ul id="display-events">
-                <li><a href="/">...</a></li>
-                <li><a href="/">...</a></li>
-                <li><a href="/">...</a></li>
-                <li><a href="/">...</a></li>
-                <li><a href="/">...</a></li>
-                <li><a href="/">...</a></li>
-            </ul>
-        </div>
+      </section>
+      <!-- results list -->
+      <section class=" box block is-success">
+        <p class="title has-text-centered">Upcoming Events</p>
+
+        <ul id="display-events">
+
+          <li class="box block">
+            <p>
+              (Event Name) - 04/03/2022 - Sports
+            </p>
+          </li>
+          <li class="box block">
+            <p>
+              (Event Name) - 04/03/2022 - Sports
+            </p>
+          </li>
+          <li class="box block">
+            <p>
+              (Event Name) - 04/03/2022 - Sports
+            </p>
+          </li>
+          <li class="box block">
+            <p>
+              (Event Name) - 04/03/2022 - Sports
+            </p>
+          </li>
+          <li class="box block">
+            <p>
+              (Event Name) - 04/03/2022 - Sports
+            </p>
+          </li>
+        </ul>
+        <section class="box block">
+        <nav class="pagination" role="navigation" aria-label="pagination">
+          <a class="pagination-previous" title="This is the first page">Previous</a>
+          <a class="pagination-next">Next page</a>
+          <ul class="pagination-list">
+            <li>
+              <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+            </li>
+            <li>
+              <a class="pagination-link" aria-label="Goto page 2">2</a>
+            </li>
+            <li>
+              <a class="pagination-link" aria-label="Goto page 3">3</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+        </section>
+        <section class="block is-info tile is-justify-content-space-evenly is-flex-direction-column" >
+          <h1 class="has-text-centered"><strong>Entertainment News</strong></h1>
+          <figure class="image has-text-centered">
+            <img src="./assets/images/music.jpeg">
+            <a href="https://www.rollingstone.com/music/music-news/">Rolling Stones</a>
+          </figure>
+        </section>
+      
+      
+    </div>
 
 
 
     <!-- footer with links -->
     <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>rainCOATE</strong> by <a href="https://jgthms.com">Silent Dragons</a>. The source code is
-                licensed
-                <a href="/"></a>. The website content
-                is licensed <a href="/"></a>.
-            </p>
-        </div>
+      <div class="content has-text-centered">
+        <p>
+          <strong>rainCOATE</strong> by <a href="https://jgthms.com">Silent Dragons</a>. The source code is
+          licensed
+          <a href="/"></a>. The website content
+          is licensed <a href="/"></a>.
+        </p>
+      </div>
     </footer>
-    </div>
+  </div>
 </body>
 
 </html>
