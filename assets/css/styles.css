@@ -121,6 +121,14 @@ body {
     /* background-color: bisque; */
 /* } */
 
+/* hover menu */
+
+#drop-text:hover{
+    color: black;
+}
+
+
+
 #display-results-box{
     margin-top: 2%;
     margin-left: 1%;
@@ -152,4 +160,8 @@ img{
 /* search bar */
 #search-bar{
     padding-bottom: 1%;
+}
+
+#footer-content{
+    padding-top: 4%;
 }
