@@ -7,10 +7,8 @@
 
 .hero{
      background-image: url('../images/herobackground-raincoat.jpg'); 
-     background-size: cover;
-     background-position: 20%;
-     
-    
+     background-size:contain;
+     background-position: 10%;
 }
 
 html {
@@ -123,9 +121,26 @@ body {
     /* background-color: bisque; */
 /* } */
 
-#display-events{}
+#display-results-box{
+    margin-top: 2%;
+}
 
 li { 
     border: 1px solid black;
     border-radius: 10%;
+}
+
+img{
+    border-radius: 10%;
+    
+}
+
+#news-boxes{
+    border-radius: 3%;
+}
+
+#top-bar{}
+
+#search-bar{
+    padding-bottom: 1%;
 }

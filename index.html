@@ -32,13 +32,16 @@
       </section>
     </div>
     <!-- bio -->
-    <div class="block ">
-      <article class="message is-success">
+    <div id="top-bar" class="block has-background-warning-dark has-text-white-ter">
+      <article class="message has-background-success-dark has-text-centered">
         <div class="message-header has-text-centered">
+          
+          <a href="https://github.com/areed98/rainCOAT">Follow Us</a>
           <p>about us</p>
+          <a href="mailto:banjosquash@gmail.com">Contact Us</a>
         </div>
-        <div class="message-body is-light">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, suscipit?
+        <div class="message-body is-light has-text-white">
+          We're just here to help you get there!
         </div>
       </article>
     </div>
@@ -47,15 +50,14 @@
       <!-- dropdown menu -->
 
       <!-- search bar -->
-      <section
-        class="container is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center">
+      <section id="search-bar" class="container is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center">
         <form>
           <div class="field has-addons">
             <div class="control">
-              <input class="input" type="text" placeholder="Search">
+              <input class="input" type="text" placeholder="i.e 'John Mayer'">
             </div>
             <div class="control">
-              <a class="button is-info">
+              <a class="button has-background-warning-dark has-text-white-ter">
                 Search
               </a>
             </div>
@@ -63,7 +65,7 @@
         </form>
         <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+            <button class="button has-background-warning-dark has-text-white-ter has-text-white-ter" aria-haspopup="true" aria-controls="dropdown-menu3">
               <span>Search by Category</span>
               <span class="icon is-small">
                 <i aria-hidden="true"></i>
@@ -104,17 +106,17 @@
       </section>
     </div>
     
-    <div class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center">
-      <section class="sports-news tile is-justify-content-space-evenly is-flex-direction-column">
-        <h1 class="has-text-centered"><strong>Sports News</strong></h1>
+    <div id="news-boxes" class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center has-background-success-dark">
+      <section id="sports-news" class="sports-news tile is-justify-content-space-evenly is-flex-direction-column">
+        <h1 class="has-text-centered block"><strong class="has-text-white-ter">Sports News</strong></h1>
         <figure class="image has-text-centered">
           <img src="./assets/images/raincoat.jpeg">
-          <a href="https://www.espn.com/">ESPN News</a>
+          <a class="button block has-background-warning-dark has-text-white-ter" href="https://www.espn.com/">ESPN News</a>
         </figure>
         
       </section>
       <!-- results list -->
-      <section class=" box block is-success">
+      <section id="display-results-box" class=" box block">
         <p class="title has-text-centered">Upcoming Events</p>
 
         <ul id="display-events">
@@ -147,11 +149,11 @@
         </ul>
         <section class="box block">
         <nav class="pagination" role="navigation" aria-label="pagination">
-          <a class="pagination-previous" title="This is the first page">Previous</a>
-          <a class="pagination-next">Next page</a>
+          <a class="pagination-previous has-background-warning-dark has-text-white-ter" title="This is the first page">Previous</a>
+          <a class="pagination-next has-background-warning-dark has-text-white-ter">Next page</a>
           <ul class="pagination-list">
             <li>
-              <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+              <a class="pagination-link is-current has-background-warning-dark" aria-label="Page 1" aria-current="page">1</a>
             </li>
             <li>
               <a class="pagination-link" aria-label="Goto page 2">2</a>
@@ -163,11 +165,11 @@
         </nav>
       </section>
         </section>
-        <section class="block is-info tile is-justify-content-space-evenly is-flex-direction-column" >
-          <h1 class="has-text-centered"><strong>Entertainment News</strong></h1>
+        <section id="news-boxes" class="block is-info tile is-justify-content-space-evenly is-flex-direction-column" >
+          <h1 class="has-text-centered block"><strong class="has-text-white-ter">Entertainment News</strong></h1>
           <figure class="image has-text-centered">
             <img src="./assets/images/music.jpeg">
-            <a href="https://www.rollingstone.com/music/music-news/">Rolling Stones</a>
+            <a class="button block has-background-warning-dark has-text-white-ter" href="https://www.rollingstone.com/music/music-news/">Rolling Stones</a>
           </figure>
         </section>
       
@@ -177,10 +179,10 @@
 
 
     <!-- footer with links -->
-    <footer class="footer">
+    <footer class="footer has-background-grey-dark has-text-centered has-text-white-ter">
       <div class="content has-text-centered">
-        <p>
-          <strong>rainCOATE</strong> by <a href="https://jgthms.com">Silent Dragons</a>. The source code is
+        <p class="has-text-white-er">
+          rainCOATE by <a href="https://jgthms.com">Silent Dragons</a>. The source code is
           licensed
           <a href="/"></a>. The website content
           is licensed <a href="/"></a>.
