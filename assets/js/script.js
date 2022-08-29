@@ -3,10 +3,6 @@ var cityButtonEl = document.querySelector("#cityButton");
 var ulEl = document.querySelector("#searchResults");
 var searchResultsEl = document.querySelector("#searchResults");
 var searchNavEl = document.querySelector("#eventsNav");
-// var dropdownButtonEl = document.querySelector(".dropdown-trigger");
-// var dropdown1El = document.querySelector("#dropdown1");
-// var genreMenuEl = document.querySelector("#genreMenu");
-
 var selectEl = document.querySelector("#genreSelect");
 var filterBtnEl = document.querySelector("#filterBtn");
 var keywordInputEl = document.querySelector("#keywordInput");
@@ -496,6 +492,8 @@ filterBtnEl.addEventListener("click", filterBtnHandler);
 // https://www.weatherapi.com/weather/q/country-club-manor-2556203?loc=2556203&loc=2556203&day=1
 // https://developers.google.com/calendar/api
 // Clear filters option needed
+// Disable or make filters invisible until a city is searched
+// google maps api?
 
 /* 
 =========
