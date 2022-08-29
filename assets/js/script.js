@@ -3,8 +3,18 @@ var cityButtonEl = document.querySelector("#cityButton");
 var ulEl = document.querySelector("#searchResults");
 var searchResultsEl = document.querySelector("#searchResults");
 var searchNavEl = document.querySelector("#eventsNav");
+// var dropdownButtonEl = document.querySelector(".dropdown-trigger");
+// var dropdown1El = document.querySelector("#dropdown1");
+// var genreMenuEl = document.querySelector("#genreMenu");
+
+var selectEl = document.querySelector("#genreSelect");
+var filterBtnEl = document.querySelector("#filterBtn");
+var keywordInputEl = document.querySelector("#keywordInput");
+
+var keyword = "";
 
 var pageData = {
+    selfURL: "",
     nextPageURL: "",
     prevPageURL: "",
     firstPageURL: "",
@@ -59,6 +69,7 @@ var ticketMasterFetch = function(cityName) {
             pageData.nextPageURL = data._links.next.href;
             pageData.firstPageURL = data._links.first.href;
             pageData.lastPageURL = data._links.last.href;
+            pageData.selfURL = data._links.self.href;
             ticketMasterStats(data);
 
         })
@@ -85,6 +96,7 @@ var nextPageFetch = function() {
             pageData.currentPageNumber = data.page.number + 1;
             pageData.firstPageURL = data._links.first.href;
             pageData.lastPageURL = data._links.last.href;
+            pageData.selfURL = data._links.self.href;
 
             if(data._links.next) {
                 pageData.nextPageURL = data._links.next.href;
@@ -120,6 +132,7 @@ var prevPageFetch = function() {
             pageData.currentPageNumber = data.page.number + 1;
             pageData.firstPageURL = data._links.first.href;
             pageData.lastPageURL = data._links.last.href;
+            pageData.selfURL = data._links.self.href;
 
             if(data._links.next) {
                 pageData.nextPageURL = data._links.next.href;
@@ -153,6 +166,7 @@ var firstPageFetch = function() {
             pageData.currentPageNumber = data.page.number + 1;
             pageData.firstPageURL = data._links.first.href;
             pageData.lastPageURL = data._links.last.href;
+            pageData.selfURL = data._links.self.href;
 
             if(data._links.next) {
                 pageData.nextPageURL = data._links.next.href;
@@ -187,6 +201,7 @@ var lastPageFetch = function() {
             pageData.currentPageNumber = data.page.number + 1;
             pageData.firstPageURL = data._links.first.href;
             pageData.lastPageURL = data._links.last.href;
+            pageData.selfURL = data._links.self.href;
 
             if(data._links.next) {
                 pageData.nextPageURL = data._links.next.href;
@@ -307,7 +322,9 @@ var upcomingEventsNavConstructor = function() {
 
 var currentPageConstructor = function() {
 
-    if (pageData.currentPageNumber === 1 || pageData.currentPageNumber === pageData.totalPages) {
+    if (pageData.firstPageURL == false || pageData.lastPageURL == false) {
+        childDeconstructor(searchNavEl);
+    } else if (pageData.currentPageNumber === 1 || pageData.currentPageNumber === pageData.totalPages) {
 
         var ulEl = document.querySelector(".pagination-list");
         var firstPageEl = document.querySelector("#firstPage");
@@ -356,9 +373,129 @@ var currentPageConstructor = function() {
 
 };
 
+// New code (8/28/2022)
+var filterFetch = function(genreTxt) {
+
+    var genre = genreTxt;
+
+    var splittxt = pageData.selfURL.split("classificationId=");
+
+    splittxt[1] = `&classificationId=${genre}`;
+
+    var splittxt2 = splittxt[0].split("keyword=")
+    splittxt2[1] = `&keyword=${keyword}`
+    var joinedtxt2 = splittxt2.join('');
+
+    splittxt[0] = joinedtxt2;
+
+    var joinedtxt = splittxt.join('');
+
+    var joinedURL = `${prefix}${joinedtxt}${apiPrefix}${apiKey}`;
+
+    console.log(joinedURL);
+
+    childDeconstructor(searchResultsEl);
+    childDeconstructor(searchNavEl);
+    fetch(`${joinedURL}`)
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            pageData.currentPageNumber = data.page.number + 1;
+
+            if(data._links.first) {
+                pageData.firstPageURL = data._links.first.href;
+            } else {
+                pageData.firstPageURL = false;
+            }
+
+            if (data._links.last) {
+                pageData.lastPageURL = data._links.last.href;
+            } else {
+                pageData.lastPageURL = false;
+            }
+
+            if (data._links.self) {
+                pageData.selfURL = data._links.self.href;
+            }
+
+            if(data._links.next) {
+                pageData.nextPageURL = data._links.next.href;
+            }
+
+            if(data._links.prev) {
+                pageData.prevPageURL = data._links.prev.href;
+            }
+
+            ticketMasterStats(data);
+            currentPageConstructor();
+        })
+        .catch(function() {
+            var pEl = document.createElement("p");
+            pEl.textContent = "Could not process request! (likely due to reaching 1000th item limit)";
+            pEl.classList.add("subtitle");
+            searchResultsEl.appendChild(pEl);
+        })
+    
+};
+
+var filterBtnHandler = function(event) {
+
+    event.preventDefault();
+
+    var case1 = false;
+    keyword = keywordInputEl.value;
+
+    if (keywordInputEl.value == null || keywordInputEl.value == "") {
+        keyword = "";
+    }
+
+    if (selectEl.value != 0) {
+        case1 = true;
+    }
+
+    if (case1 == true) {
+        filterSelect();
+    }  
+
+};
+
+var filterSelect = function() {
+
+    var sportsID = "KZFzniwnSyZfZ7v7nE";
+    var musicID = "KZFzniwnSyZfZ7v7nJ";
+    var artsID = "KZFzniwnSyZfZ7v7na";
+
+    if(selectEl.value==1) {
+        filterFetch(musicID);
+    } else if(selectEl.value==2) {
+        filterFetch(sportsID);
+    } else if(selectEl.value==3) {
+        filterFetch(artsID);
+    }
+
+};
+
+var filterConstructor = function() {
+
+    /* 
+    ============
+    Constructor for "filter options" on page and all relevant event listeners
+    ============
+    */
+
+};
+
 // What if we use jquery to drag elements onto a calendar and have it stay there?
 
 cityButtonEl.addEventListener("click", cityInputHandler);
+filterBtnEl.addEventListener("click", filterBtnHandler);
+
+// APIS
+// https://www.weatherapi.com/weather/q/country-club-manor-2556203?loc=2556203&loc=2556203&day=1
+// https://developers.google.com/calendar/api
+// Clear filters option needed
 
 /* 
 =========

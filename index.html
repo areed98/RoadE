@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <!-- main page container -->
     <div id = "test" class="container">
 
-        <section>
+        <section class="mb-6">
             <div id = "test3" class="block">
 
                 <section class="hero is-medium is-info">
@@ -50,6 +50,7 @@
 
                             <article class="tile is-child box">
                                 <p class="title">Where to go, What to do?</p>
+                                
                                 <form>
                                     <div class="field has-addons">
                                         <div class="control">
@@ -61,26 +62,61 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <!-- <div class="field has-addons">
+
+                                    <hr>
+
+                                    <p class="title">Filter Options</p>
+                                    <div class="field">
+                                        <label class="label">Genre</label>
                                         <div class="control">
-                                            <input class="input" type="text" placeholder="Music? Sports?">
-                                        </div>
-                                        <div class="control">
-                                            <a class="button is-info">
-                                                Search
-                                            </a>
+                                            <div class="select">
+                                                <select id = "genreSelect">
+                                                    <option value="0" selected disabled hidden>Select Genre</option>
+                                                    <option value="1">Music</option>
+                                                    <option value="2">Sports</option>
+                                                    <option value="3">Arts & Theatre</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="field has-addons">
+
+
+                                        <!-- <div id="dropdown1" class="dropdown noTrigger">
+                                            <div class="dropdown-trigger noTrigger">
+                                                <button class="button noTrigger" aria-haspopup="true" aria-controls="dropdown-menu">
+                                                    <span class="noTrigger">Genre</span>
+                                                    <span class="icon is-small noTrigger">
+                                                    <i class="fas fa-angle-down noTrigger" aria-hidden="true"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <div class="dropdown-menu noTrigger" id="dropdown-menu" role="menu">
+                                                <div id="genreMenu" class="dropdown-content noTrigger">
+                                                    <a class="dropdown-item noTrigger">
+                                                    Music
+                                                    </a>
+                                                    <a class="dropdown-item noTrigger">
+                                                    Sports
+                                                    </a>
+                                                    <a class="dropdown-item noTrigger">
+                                                    Arts & Theatre
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                    <div class="field">
+                                        <label class="label">Keyword</label>
                                         <div class="control">
-                                            <input class="input" type="text" placeholder="Favorite Artist?">
+                                            <input id = "keywordInput" class="input" type="text" placeholder="Adele? Golf?">
                                         </div>
-                                        <div class="control">
-                                            <a class="button is-info">
-                                                Search
-                                            </a>
-                                        </div>
-                                    </div> -->
+                                    </div>
+                            
+                                    <div id="search2" class="field">
+                                        <button id="filterBtn" class="button is-success">
+                                            Filter
+                                        </button>
+                                    </div>
                                 </form>
                             </article>
                         </div>
@@ -93,14 +129,7 @@
                                 </ul>
 
                                 <nav id="eventsNav" class= "navbar is-align-items-center"> 
-                                    <!-- <ul class="pagination-list">
-                                        <li id="firstPage" class="pagination-link is-current" aria-label="Goto page 1" aria-current="page">0</li>
-                                        <li class="pagination-ellipsis">&hellip;</li>
-                                        <li id="lastPage" class="pagination-link" aria-label="Goto page 1">0</li>
-                                    </ul>
-
-                                    <a class="pagination-previous">Previous</a>
-                                    <a class="pagination-next">Next page</a> -->
+                                    <!-- Nav goes here! -->
                                 </nav>
 
                                 <!-- <div id="calendar-box"class="container">
