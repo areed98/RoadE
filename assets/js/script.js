@@ -7,6 +7,8 @@ var selectEl = document.querySelector("#genreSelect");
 var filterBtnEl = document.querySelector("#filterBtn");
 var keywordInputEl = document.querySelector("#keywordInput");
 
+var city = "";
+
 var keyword = "";
 
 var pageData = {
@@ -22,6 +24,10 @@ var pageData = {
 var apiKey = "M3zlk7OCkBc7AhFeAlbcYBIvwTxFzGlB";
 var prefix = "https://app.ticketmaster.com";
 var apiPrefix = "&apikey=";
+
+var wapiKey = "5XBMXPEKZSXAAJ3HZEUBPKXY4";
+var wapiPrefix = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
+var wapiPrefix = "?unitGroup=us&key=";
 
 // Images api
 // https://app.ticketmaster.com/discovery/v2/events/k7vGFKzleBdwS/images.json?apikey=M3zlk7OCkBc7A
@@ -54,7 +60,9 @@ var ticketMasterFetch = function(cityName) {
     childDeconstructor(searchResultsEl);
     childDeconstructor(searchNavEl);
 
-    var city = cityName;
+    city = cityName;
+
+    weatherFetch();
 
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&sort=date,asc&radius=20&unit=miles&apikey=${apiKey}`)
         .then(function (res) {
@@ -77,6 +85,25 @@ var ticketMasterFetch = function(cityName) {
         })
 
 };
+
+var weatherdate = "2022-8-29";
+
+var weatherFetch = function() {
+
+    fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${weatherdate}/${weatherdate}${wapiPrefix}${wapiKey}&contentType=json`)
+    .then(function (res) {
+    return res.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    }); 
+
+};
+
+// fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${data.date}${wapiPrefix}${wapiKey}&contentType=json`)
+// .then(function (res) {
+//     return res.json();
+// })
 
 var nextPageFetch = function() {
 
@@ -264,7 +291,8 @@ var upcomingEventsConstructor = function(data) {
     var pEl = document.createElement("p");
     liEl.classList.add("box");
 
-    pEl.textContent = data.name + " - " + data.date + " - " + data.segment;
+    pEl.textContent = data.name + " - " + data.date + " - " + data.segment ;
+    pEL.setAttribute("data-date", data.date);
 
     liEl.appendChild(pEl);
 
