@@ -124,4 +124,17 @@ hr {
     width: 100%;
 }
 
+#clearFilters {
+    width: 100%;
+}
+
+.historyBtn {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.historyBtn:last-child {
+    margin-bottom: 0px;
+}
+
 

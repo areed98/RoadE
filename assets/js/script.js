@@ -3,9 +3,12 @@ var cityButtonEl = document.querySelector("#cityButton");
 var ulEl = document.querySelector("#searchResults");
 var searchResultsEl = document.querySelector("#searchResults");
 var searchNavEl = document.querySelector("#eventsNav");
-var selectEl = document.querySelector("#genreSelect");
-var filterBtnEl = document.querySelector("#filterBtn");
-var keywordInputEl = document.querySelector("#keywordInput");
+var filterOptionsEl = document.querySelector("#filterOptions");
+var historyContainerEl = document.querySelector("#historyContainer");
+
+var cityHistory = [];
+
+var city = "";
 
 var keyword = "";
 
@@ -43,8 +46,11 @@ var cityInputHandler = function(event) {
     if (text === null || text === "") {
         alert("input must not be empty");
     } else {
+        console.log(cityHistory)
+        console.log(cityHistory.length);
         cityInputEl.value = "";
         ticketMasterFetch(text);
+        filterConstructor();
     }
 
 };
@@ -54,7 +60,7 @@ var ticketMasterFetch = function(cityName) {
     childDeconstructor(searchResultsEl);
     childDeconstructor(searchNavEl);
 
-    var city = cityName;
+    city = cityName.trim().toLowerCase();
 
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&sort=date,asc&radius=20&unit=miles&apikey=${apiKey}`)
         .then(function (res) {
@@ -67,6 +73,72 @@ var ticketMasterFetch = function(cityName) {
             pageData.lastPageURL = data._links.last.href;
             pageData.selfURL = data._links.self.href;
             ticketMasterStats(data);
+
+            if (cityHistory.length === 0) {
+                console.log("case 1!");
+
+                var historyObject = {
+                    name: city
+                }
+    
+                cityHistory.unshift(historyObject);
+                saveHistory();
+                childDeconstructor(historyContainerEl)
+                historyConstructor();
+          
+            } else if (cityHistory.length < 8) {
+                console.log("case 2!");
+                for (i = 0; i < cityHistory.length; i++) {
+        
+                   if (cityHistory[i].name === city) {
+        
+                        break;
+        
+                    } else if (i === cityHistory.length - 1) {
+        
+                        var historyObject = {
+                            name: city
+                        }
+            
+                        cityHistory.unshift(historyObject);
+        
+                        saveHistory();
+                        childDeconstructor(historyContainerEl)
+                        historyConstructor();
+                        break;
+        
+                    }
+                }
+        
+            } else {
+                console.log("case 3!");
+        
+                for (i = 0; i < cityHistory.length; i++) {
+        
+                    if (cityHistory[i].name === city) {
+        
+                         break;
+        
+                    } else if (i === cityHistory.length - 1) {
+        
+                        var historyObject = {
+                            name: city
+                        }
+        
+                        cityHistory.pop()
+                        cityHistory.unshift(historyObject);
+        
+                        saveHistory();
+                        childDeconstructor(historyContainerEl)
+                        historyConstructor();
+                        break;
+        
+                    }
+        
+                }
+            }
+        
+            console.log(cityHistory);
 
         })
         .catch(function() {
@@ -265,6 +337,7 @@ var upcomingEventsConstructor = function(data) {
     liEl.classList.add("box");
 
     pEl.textContent = data.name + " - " + data.date + " - " + data.segment;
+    pEl.setAttribute("data-date", data.date);
 
     liEl.appendChild(pEl);
 
@@ -438,6 +511,9 @@ var filterFetch = function(genreTxt) {
 
 var filterBtnHandler = function(event) {
 
+    var keywordInputEl = document.querySelector("#keywordInput");
+    var selectEl = document.querySelector("#genreSelect");
+
     event.preventDefault();
 
     var case1 = false;
@@ -458,6 +534,8 @@ var filterBtnHandler = function(event) {
 };
 
 var filterSelect = function() {
+
+    var selectEl = document.querySelector("#genreSelect");
 
     var sportsID = "KZFzniwnSyZfZ7v7nE";
     var musicID = "KZFzniwnSyZfZ7v7nJ";
@@ -481,27 +559,167 @@ var filterConstructor = function() {
     ============
     */
 
+    childDeconstructor(filterOptionsEl);
+    var hrEl2 = document.createElement("hr");
+    var hrEl = document.createElement("hr");
+    var pEl = document.createElement("p");
+    var divEl1 = document.createElement("div");
+    var labelEl1 = document.createElement("label");
+    var divEl2 = document.createElement("div");
+    var divEl3 = document.createElement("div");
+    var selectEl = document.createElement("select");
+    var optionEl1 = document.createElement("option");
+    var optionEl2 = document.createElement("option");
+    var optionEl3 = document.createElement("option");
+    var optionEl4 = document.createElement("option");
+    var divEl4 = document.createElement("div");
+    var labelEl2 = document.createElement("label");
+    var divEl5 = document.createElement("div");
+    var inputEl = document.createElement("input");
+    var divEl6 = document.createElement("div");
+    var buttonEl = document.createElement("button");
+    var buttonEl2 = document.createElement("button");
+
+    pEl.classList.add("title");
+    pEl.textContent = "Filter Options";
+
+    divEl1.classList.add("field");
+    labelEl1.classList.add("label");
+    labelEl1.textContent = "Genre";
+    divEl2.classList.add("control");
+    divEl3.classList.add("select");
+    selectEl.setAttribute("id", "genreSelect");
+    optionEl1.setAttribute("value", 0);
+    optionEl1.setAttribute("selected", '');
+    optionEl1.setAttribute("disabled", '');
+    optionEl1.setAttribute("hidden", '');
+    optionEl1.textContent = "Select Genre";
+    optionEl2.setAttribute("value", 1);
+    optionEl2.textContent = "Music";
+    optionEl3.setAttribute("value", 2);
+    optionEl3.textContent = "Sports";
+    optionEl4.setAttribute("value", 3);
+    optionEl4.textContent = "Arts & Theatre";
+
+    divEl4.classList.add("field");
+    labelEl2.classList.add("label");
+    labelEl2.textContent = "Keyword";
+    divEl5.classList.add("control");
+    inputEl.setAttribute("id", "keywordInput");
+    inputEl.setAttribute("type", "text");
+    inputEl.classList.add("input");
+    inputEl.setAttribute("placeholder", "Adele? Golf?");
+    divEl6.classList.add("field");
+    divEl6.setAttribute("id", "search2");
+    buttonEl.classList.add("button");
+    buttonEl.classList.add("is-success");
+    buttonEl.setAttribute("id", "filterBtn");
+    buttonEl.textContent = "Filter";
+    buttonEl2.textContent = "Clear Filters";
+    buttonEl2.setAttribute("id", "clearFilters");
+    buttonEl2.classList.add("button");
+    buttonEl2.classList.add("is-danger");
+    buttonEl2.classList.add("mt-2");
+
+    filterOptionsEl.appendChild(hrEl);
+    filterOptionsEl.appendChild(pEl);
+    
+    divEl1.appendChild(labelEl1);
+    divEl1.appendChild(divEl2);
+    divEl2.appendChild(divEl3);
+    divEl3.appendChild(selectEl);
+    selectEl.appendChild(optionEl1);
+    selectEl.appendChild(optionEl2);
+    selectEl.appendChild(optionEl3);
+    selectEl.appendChild(optionEl4);
+
+    filterOptionsEl.appendChild(divEl1);
+
+    divEl4.appendChild(labelEl2);
+    divEl4.appendChild(divEl5);
+    divEl5.appendChild(inputEl);
+    
+    filterOptionsEl.appendChild(divEl4);
+
+    divEl6.appendChild(buttonEl);
+    divEl6.appendChild(buttonEl2);
+    
+    filterOptionsEl.appendChild(divEl6);
+
+    buttonEl.addEventListener("click", filterBtnHandler);
+    buttonEl2.addEventListener("click", clearFilterBtnHandler);
+
+    filterOptionsEl.appendChild(hrEl2);
+
 };
 
-// What if we use jquery to drag elements onto a calendar and have it stay there?
+var clearFilterBtnHandler = function(event) {
 
+    event.preventDefault();
+    
+    var keywordInputEl = document.querySelector("#keywordInput");
+    keywordInputEl.value = "";
+    var selectEl = document.querySelector("#genreSelect");
+
+    selectEl.value = 0;
+    keyword = "";
+
+    ticketMasterFetch(city);
+
+};
+
+var saveHistory = function() {
+
+    localStorage.setItem("historyRgy6Ne7NjPR3", JSON.stringify(cityHistory))
+
+};
+
+var loadHistory = function() {
+
+    var loadedHistory = JSON.parse(localStorage.getItem("historyRgy6Ne7NjPR3"));
+
+    if (!loadedHistory) {
+        return false;
+    } else {
+        cityHistory = loadedHistory;
+        historyConstructor();
+    }
+
+};
+
+var historyConstructor = function() {
+    var hrEl = document.createElement("hr");
+    historyContainerEl.appendChild(hrEl);
+
+    for (i=0; i < cityHistory.length; i++) {
+        var buttonEl = document.createElement("button");
+        buttonEl.style.textTransform = "capitalize";
+        buttonEl.textContent = cityHistory[i].name;
+        buttonEl.classList.add("button");
+        buttonEl.classList.add("is-light");
+        buttonEl.classList.add("historyBtn");
+        historyContainerEl.appendChild(buttonEl);
+        buttonEl.addEventListener("click", historyBtnHandler);
+    }
+};
+
+var historyBtnHandler = function(event) {
+
+    event.preventDefault();
+    var target = event.target;
+
+    var text = target.textContent;
+    ticketMasterFetch(text);
+
+};
+
+loadHistory();
 cityButtonEl.addEventListener("click", cityInputHandler);
-filterBtnEl.addEventListener("click", filterBtnHandler);
-
-// APIS
-// https://www.weatherapi.com/weather/q/country-club-manor-2556203?loc=2556203&loc=2556203&day=1
-// https://developers.google.com/calendar/api
-// Clear filters option needed
-// Disable or make filters invisible until a city is searched
-// google maps api?
 
 /* 
 =========
 TO DO:
-- Potentially implement jquery UI
-- Potentially implement calendar drag & drop
 - Potentially implement weather statistics
-- Utilize localStorage (save search results, save user plans etc.)
 - Implement modal functionality when clicking to view event details
 - Clean up and comment code
 - invisible chuck norris el?
