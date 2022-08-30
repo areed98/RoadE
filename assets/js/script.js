@@ -511,6 +511,88 @@ var filterConstructor = function() {
 
 };
 
+
+var modalConstructor = function() {
+
+    var modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.classList.add("is-active");
+
+    var modalBackground = document.createElement("div");
+    modalBackground.classList.add("modal-background");
+
+    var modalCard = document.createElement("div");
+    modalCard.classList.add("modal-card");
+
+    var modalheader = document.createElement("header");
+    modalheader.classList.add("modal-card-head");
+
+    var modalTitle = document.createElement("p");
+    modalTitle.classList.add("modal-card-title");
+    modalTitle.classList.add("has-text-centered");
+    modalTitle.textContent = data.name;
+    var modalClose = document.createElement("button");
+    modalClose.classList.add("delete");
+    modalClose.ariaLabel.add("close");
+
+    var modalBody = document.createElement("section");
+    modalBody.classList.add("modal-card-body");
+
+    var modalUl = document.createElement("ul");
+    modalUl.id.add("display-events");
+
+    var modalboxBlock1 = document.createElement("li");
+    modalboxBlock1.classList.add("box");
+    modalboxBlock1.classList.add("block");
+    var modalP1 = document.createElement("p");
+    modalP1.textContent = "time/date";
+
+    var modalboxBlock2 = document.createElement("li");
+    modalboxBlock2.classList.add("box");
+    modalboxBlock2.classList.add("block");    
+    var modalP2 = document.createElement("p");
+    modalP2.textContent = "location";
+
+    var modalboxBlock3 = document.createElement("li");
+    modalboxBlock3.classList.add("box");
+    modalboxBlock3.classList.add("block");
+    var modalP3 = document.createElement("p");
+    modalP3.textContent = "forecast";
+
+    var modalboxBlock4 = document.createElement("li");
+    modalboxBlock4.classList.add("box");
+    modalboxBlock4.classList.add("block");
+    var modalP4 = document.createElement("p");
+    modalP4.textContent = "image";
+
+
+    modal.appendChild(modalBackground);
+    modal.appendChild(modalCard);
+
+    modalCard.appendChild(modalheader);
+
+    modalheader.appendChild(modalTitle);
+    modalheader.appendChild(modalClose);
+
+    modalCard.appendChild(modalBody);
+
+    modalBody.appendChild(modalUl);
+
+    modalUl.appendChild(modalboxBlock1);
+    modalboxBlock1.appendChild(modalP1);
+
+    modalUl.appendChild(modalboxBlock2);
+    modalboxBlock2.appendChild(modalP2);
+
+    modalUl.appendChild(modalboxBlock3);
+    modalboxBlock3.appendChild(modalP3);
+
+    modalUl.appendChild(modalboxBlock4);
+    modalboxBlock4.appendChild(modalP4);
+
+    document.body.appendChild(modal);
+}
+
 // What if we use jquery to drag elements onto a calendar and have it stay there?
 
 cityButtonEl.addEventListener("click", cityInputHandler);
