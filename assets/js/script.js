@@ -980,9 +980,10 @@ var weatherFetch = function(weatherDate, dataObject) {
 };
 
 searchResultsEl.addEventListener("click", modalBtnHandler);
+cityButtonEl.addEventListener("click", cityInputHandler);
 
 loadHistory();
-cityButtonEl.addEventListener("click", cityInputHandler);
+
 
 /* 
 =========
