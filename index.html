@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>rainCoate</title>
+</head>
+
+<body>
+    <!-- main page container -->
+    <div id = "test" class="container">
+
+        <section class="mb-6">
+            <div id = "test3" class="block">
+
+                <section class="hero is-medium is-info">
+                    <div class="hero-body ">
+                       <img class="image-is-2by1">
+                        <img src="https://hips.hearstapps.com/prima.cdnds.net/assets/17/24/980x490/landscape-1497278576-kew-the-music.jpg?resize=1200:*" alt="Welcome to life outside your door">
+                        <p class="title">
+                            rosEs
+                        </p>
+                        <p class="subtitle">
+                           rain or shine, events/sports
+                        </p>
+                    </div>
+                </section>
+            
+            </div>
+
+           
+            <article class="message is-success ">
+                <div class="message-header">
+                    <div class="navbar-start">
+                </div>
+                 <a class="navbar-item has-background-danger-dark " href="index.html">
+                        <span class="icon">
+                                    <i class="fa fa-home"></i>
+                            </span>
+                                <span>Home</span>
+                            </a>
+                            <a class="navbar-item has-background-warning" href="about.html">
+                                <span class="icon">
+                                    <i class="fa fa-info-circle"></i>
+                                </span>
+                              <span>about us</span>
+                            </a>
+                         <a class="navbar-item has-background-success-dark" href="https://github.com/areed98/rainCOAT">
+                                <span class="icon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <span>Contact</span>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </article>
+
+
+                    <div class="tile is-ancestor">
+
+                        <div class="tile is-parent">
+
+                            <article class="tile is-child box">
+                                <p class="title">Where to go, What to do?</p>
+                                
+                                <form>
+                                    <div class="field has-addons">
+                                        <div class="control">
+                                            <input id = "cityInput" class="input" type="text" placeholder="Desired Location">
+                                        </div>
+                                        <div class="control">
+                                            <button id = "cityButton" type = submit class="button is-info">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <p class="title">Filter Options</p>
+                                    <div class="field">
+                                        <label class="label">Genre</label>
+                                        <div class="control">
+                                            <div class="select">
+                                                <select id = "genreSelect">
+                                                    <option value="0" selected disabled hidden>Select Genre</option>
+                                                    <option value="1">Music</option>
+                                                    <option value="2">Sports</option>
+                                                    <option value="3">Arts & Theatre</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                        <!-- <div id="dropdown1" class="dropdown noTrigger">
+                                            <div class="dropdown-trigger noTrigger">
+                                                <button class="button noTrigger" aria-haspopup="true" aria-controls="dropdown-menu">
+                                                    <span class="noTrigger">Genre</span>
+                                                    <span class="icon is-small noTrigger">
+                                                    <i class="fas fa-angle-down noTrigger" aria-hidden="true"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <div class="dropdown-menu noTrigger" id="dropdown-menu" role="menu">
+                                                <div id="genreMenu" class="dropdown-content noTrigger">
+                                                    <a class="dropdown-item noTrigger">
+                                                    Music
+                                                    </a>
+                                                    <a class="dropdown-item noTrigger">
+                                                    Sports
+                                                    </a>
+                                                    <a class="dropdown-item noTrigger">
+                                                    Arts & Theatre
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                    <div class="field">
+                                        <label class="label">Keyword</label>
+                                        <div class="control">
+                                            <input id = "keywordInput" class="input" type="text" placeholder="Adele? Golf?">
+                                        </div>
+                                    </div>
+                            
+                                    <div id="search2" class="field">
+                                        <button id="filterBtn" class="button is-success">
+                                            Filter
+                                        </button>
+                                    </div>
+                                </form>
+                               
+                                <article class="tile is-child box">
+                                    <p class="title">Upcoming Events</p>
+                                    <ul>
+                                      
+                                        <li class = "box">
+                                            
+                                            <input class="input is-rounded is-success" type="text" placeholder="(Event Name) -Date- Sports/events"> 
+                                            
+                                        </li>
+                                        <li class = "box">
+                                            
+                                            <input class="input is-rounded is-success" type="text" placeholder="(Event Name) -Date- Sports/events">
+                                            
+                                        </li>
+                                        <li class = "box">
+                                                 <input class="input is-rounded is-success" type="text" placeholder="(Event Name) -Date- Sports/events">
+    
+                                        </li>
+                                        <li class = "box">
+                                            <input class="input is-rounded is-success" type="text" placeholder="(Event Name) -Date- Sports/events"> 
+    
+                                        </li>
+                                        <li class = "box">
+                                            <input class="input is-rounded is-success is-hovered" type="text" placeholder="(Event Name) -Date- Sports/events"> 
+    
+                                        </li>
+                                    </ul>
+                                    
+                                    
+                                        <nav class="pagination is left pt-3" role="navigation" aria-label="pagination">
+                                            <a class="pagination-previous" aria-label="Previous">Previous</a>
+                                            <a class="pagination-next" aria-label="Next">Next page</a>
+                                            <ul class="pagination-list">
+                                                <li>
+                                                    <a class="pagination-link is-current" aria-label="Goto page 1">1</a>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 2">2</a>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 3">3</a>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 4">4</a>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 5">5</a>
+                                                </li>
+                                            </ul>             
+
+                            </article>
+                        </div>
+                        
+                        <div class="tile is-parent is-5">
+                            <article class="tile is-flex-grow " >
+                               <div class="column">
+                              
+        
+                                      <div class="tile is-child is-20">
+                                     <section class="section is-medium is-size-6 is-align-items-end">
+                                        <h1 class="is-size-3 has-text-weight-medium pb-1">Reviews</h1>
+                                      <div class="container">
+                                                <div class="columns">
+                                                    <div class="column is-one-third">
+                                                        <div class="card">
+                                                            <div class="card-image">
+                                                                <figure class="image is-4by3">
+                                                                    <img src="https://img.buzzfeed.com/buzzfeed-static/static/2018-02/21/22/asset/buzzfeed-prod-fastlane-02/sub-buzz-11528-1519268886-5.jpg" alt="Reviewer">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="card-content">
+                                                                <div class="media">
+                                                                    <div class="media-content">
+                                                                        <p class="title is-4">John Smith</p>
+                                                                        <p class="subtitle is-6">@johnsmith</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Phasellus nec iaculis mauris.
+                                                                    <a>Love the simplicity</a>.
+                                                                    <a href="#">#veryEASY</a>
+                                                                    <a href="#">#responsive</a>
+                                                                    <br>
+                                                                    <time datetime="2022-31-08">7:00 PM - 8/31/2022</time>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column is-one-third">
+                                                        <div class="card">
+                                                            <div class="card-image">
+                                                                <figure class="image is-4by3">
+                                                                    <img src="https://th.bing.com/th/id/R.ffd236ad35e1142d62cabc529e83587d?rik=pPAz05R27cJqhg&riu=http%3a%2f%2fmedia2.s-nbcnews.com%2fi%2fstreams%2f2014%2fJune%2f140621%2f1D274906175692-140621-pets-peanut-tease.jpg&ehk=K9aYPOCocR7xoQpgul%2f1mTfH5ZeteNhKUR0KufXFIUk%3d&risl=&pid=ImgRaw&r=0" alt="Reviewer">
+                                                                </figure>
+                                                                <div class="content pl-3"> 
+                                                                    <p>OMG why haven't I found this earlier! so much easier to use</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-content">
+
+                                       </section>
+                                    </div>
+                                        </div>
+                                 </article>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+           <div> <strong>rainCOATE</strong> by <a href="#">Silent Dragons</a>. The source code is licensed
+            <a href="/"></a>. The website content
+            is licensed <a href="/"></a>.
+          </p>
+        </div>
+    </footer>
+
+</div>
+
+<script src = "./assets/js/script.js"></script>
+</body>
+
+</html>
