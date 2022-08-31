@@ -1,219 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>rainCOATE</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Stylesheets and fonts here -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="./assets/images/icons8-van-64.png">
 
-<body>
-    <!-- main page container -->
-    <div id = "test" class="container">
+        <title>roadE</title>
+    </head>
 
-        <section class="mb-6">
-            <div id = "test3" class="block">
+    <body>
 
-                <section class="hero is-medium is-info">
-                    <div class="hero-body">
-                        <p class="title">
-                            rainCOATE
-                        </p>
-                        <p class="subtitle">
-                            Concerts..Outdoors..Anywhere...Together...Events
-                        </p>
-                    </div>
-                </section>
-                
-            </div>
+        <!-- whole body container -->
+        <div id = "mainWrapper" class="container">
 
-            <div id = "test2" class="block">
-                <article class="message is-success">
-                    <div class="message-header">
-                        <p>about us</p>
-                    </div>
-                    <div class="message-body is-light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, suscipit?
-                    </div>
-                </article>
+            <section class="mb-6">
 
-                    <div class="tile is-ancestor">
+                <!-- Header start -->
+                <header id = "test3" class="block">
 
-                        <div class="tile is-parent">
+                    <section class="hero is-medium is-info">
+                        <div class="hero-body">
+                            <p class="title">
+                                roadE
+                            </p>
+                            <p class="subtitle">
+                                Let's plan your next live event!
+                            </p>
+                        </div>
+                    </section>
+                    
+                </header>
+                <!-- Header end -->
 
-                            <article class="tile is-child box">
-                                <p class="title">Where to go, What to do?</p>
-                                
-                                <form>
-                                    <div class="field has-addons">
-                                        <div class="control">
-                                            <input id = "cityInput" class="input" type="text" placeholder="Desired Location">
-                                        </div>
-                                        <div class="control">
-                                            <button id = "cityButton" type = submit class="button is-info">
-                                                Search
-                                            </button>
-                                        </div>
-                                    </div>
 
-                                    <hr>
+                <!-- Main content starts -->
+                <main class="block">
 
-                                    <p class="title">Filter Options</p>
-                                    <div class="field">
-                                        <label class="label">Genre</label>
-                                        <div class="control">
-                                            <div class="select">
-                                                <select id = "genreSelect">
-                                                    <option value="0" selected disabled hidden>Select Genre</option>
-                                                    <option value="1">Music</option>
-                                                    <option value="2">Sports</option>
-                                                    <option value="3">Arts & Theatre</option>
-                                                </select>
+                    <!-- About us section starts -->
+                    <article class="message is-success">
+                        <div class="message-header">
+                            <p>about us</p>
+                        </div>
+                        <div class="message-body is-light">
+                            We're just here to help you get there!
+                        </div>
+                    </article>
+                    <!-- About us section ends -->
+
+                        <!-- Search and upcoming events sections start -->
+                        <div class="tile is-ancestor">
+
+                            <!-- Search section starts -->
+                            <div class="tile is-parent">
+
+                                <article class="tile is-child box">
+
+                                    <p id = "searchTitle" class="title">Where to go, What to do?</p>
+                                    
+                                    <!-- City search form -->
+                                    <form id = "warningRef">
+                                        <div id = "searchWrapper" class="field has-addons">
+                                            <div id = "cityInputWrapper" class="control">
+                                                <input id = "cityInput" class="input" type="text" placeholder="Desired Location">
                                             </div>
-                                        </div>
-                                    </div>
-
-
-                                        <!-- <div id="dropdown1" class="dropdown noTrigger">
-                                            <div class="dropdown-trigger noTrigger">
-                                                <button class="button noTrigger" aria-haspopup="true" aria-controls="dropdown-menu">
-                                                    <span class="noTrigger">Genre</span>
-                                                    <span class="icon is-small noTrigger">
-                                                    <i class="fas fa-angle-down noTrigger" aria-hidden="true"></i>
-                                                    </span>
+                                            <div id = "cityButtonWrapper" class="control">
+                                                <button id = "cityButton" type = submit class="button is-info">
+                                                    Search
                                                 </button>
                                             </div>
-                                            <div class="dropdown-menu noTrigger" id="dropdown-menu" role="menu">
-                                                <div id="genreMenu" class="dropdown-content noTrigger">
-                                                    <a class="dropdown-item noTrigger">
-                                                    Music
-                                                    </a>
-                                                    <a class="dropdown-item noTrigger">
-                                                    Sports
-                                                    </a>
-                                                    <a class="dropdown-item noTrigger">
-                                                    Arts & Theatre
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div> -->
-
-                                    <div class="field">
-                                        <label class="label">Keyword</label>
-                                        <div class="control">
-                                            <input id = "keywordInput" class="input" type="text" placeholder="Adele? Golf?">
                                         </div>
+                                    </form>
+                                    <!-- City search form ends -->
+
+                                    <!-- Filter and search history form -->
+                                    <form>
+                                        <section id = "historyContainer">
+                                            <!-- Search history goes here! -->
+                                        </section>
+                                        <section id = "filterOptions">
+                                            <!-- Filter options are generated here! -->
+                                        </section>
+                                    </form>
+                                    <!-- Filter / search history form ends -->
+                                    
+                                    <!-- Images to ESPN and Rolling stone -->
+                                    <div id = "news-boxes" class="container">
+
+                                        <!-- ESPN box -->
+                                        <div class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center has-background-light mt-3">
+                                            <section id="sports-news" class="tile is-justify-content-space-evenly is-flex-direction-column">
+                                                <h1 class="has-text-centered m-2"><strong class="">Sports News</strong> </h1>
+                                                <figure class="image has-text-centered">
+                                                    <img class="sports" src="./assets/images/raincoat.jpg" alt="Multiple people playing sports">
+                                                    <a class="button block has-background-grey-lighter has-text-grey-darker" href="https://www.espn.com/">ESPN News</a>
+                                                </figure>
+                                        </div>
+                                        <!-- Rolling stone box -->
+                                        <div class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center has-background-dark mt-3">
+                                            <section id="entertainment-news" class="block is-info tile is-justify-content-space-evenly is-flex-direction-column is-flex-wrap-wrap ">
+                                                <h1 class="has-text-centered m-2"><strong class="has-text-white-ter">Entertainment News</strong></h1>
+                                                <figure class="image has-text-centered">
+                                                    <img class="music" src="./assets/images/music.webp" alt="Man singing to a crowd in a concert">
+                                                    <a id = "rollingStones" class="button block has-background-grey-dark has-text-white-ter"
+                                                        href="https://www.rollingstone.com/music/music-news/">Rolling Stone</a>
+                                                </figure>
+                                            </section>
+                                        </div>
+                                        
                                     </div>
+                                    <!-- Images end -->
+
+                                </article>
+
+                            </div>
+                            <!-- Search section ends -->
                             
-                                    <div id="search2" class="field">
-                                        <button id="filterBtn" class="button is-success">
-                                            Filter
-                                        </button>
-                                    </div>
-                                </form>
-                            </article>
+                            <!-- Upcoming events section starts -->
+                            <div class="tile is-parent is-8">
+                                <article id = "upcomingEventsWrapper" class="tile is-child box">
+                                    <p class="title upcomingEventsFormat">Upcoming Events</p>
+                                    <ul id="searchResults" class = "mt-4 mb-4">
+                                        <p class="subtitle upcomingEventsFormat"> Search and the results will appear here! </p>
+                                        <!-- Search Results go here! -->
+                                    </ul>
+
+                                    <nav id="eventsNav" class= "navbar is-align-items-center"> 
+                                        <!-- Nav goes here! -->
+                                    </nav>
+                                </article>
+                            </div>
+                            <!-- Upcoming events section ends -->
+
                         </div>
-                        
-                        <div class="tile is-parent is-8">
-                            <article class="tile is-child box">
-                                <p class="title">Upcoming Events</p>
-                                <ul id="searchResults" class = "mt-4 mb-4">
-                                    <!-- Search Results go here! -->
-                                </ul>
+                        <!-- Search section ends -->
 
-                                <nav id="eventsNav" class= "navbar is-align-items-center"> 
-                                    <!-- Nav goes here! -->
-                                </nav>
+                    </main>
+                <!-- Main content ends -->
 
-                                <!-- <div id="calendar-box"class="container">
-                                    <div class="calendar">
-                                        <div class="month">
-                                            <i class="fas fa-angle-left">prev</i>
-                                            <div class="date">
-                                                <h1>May</h1>
-                                                <p>Fri May 29, 2022</p>
-                                            </div>
-                                            <i class="fas fa-angle-right">next</i>
-                                        </div>
-                                        <div class="weekdays">
-                                            <div>Sun</div>
-                                            <div>Mon</div>
-                                            <div>Tue</div>
-                                            <div>Wed</div>
-                                            <div>Thu</div>
-                                            <div>Fri</div>
-                                            <div>Sat</div>
-                                        </div>
-                                        <div id="days" class="days">
-                                            <div class="prev-date">26</div>
-                                            <div class="prev-date">27</div>
-                                            <div class="prev-date">28</div>
-                                            <div class="prev-date">29</div>
-                                            <div class="prev-date">30</div>
-                                            <div>1</div>
-                                            <div>2</div>
-                                            <div>3</div>
-                                            <div>4</div>
-                                            <div>5</div>
-                                            <div>6</div>
-                                            <div>7</div>
-                                            <div>8</div>
-                                            <div>9</div>
-                                            <div>10</div>
-                                            <div>11</div>
-                                            <div>12</div>
-                                            <div>13</div>
-                                            <div>14</div>
-                                            <div>15</div>
-                                            <div>16</div>
-                                            <div>17</div>
-                                            <div>18</div>
-                                            <div>19</div>
-                                            <div>20</div>
-                                            <div>21</div>
-                                            <div>22</div>
-                                            <div>23</div>
-                                            <div>24</div>
-                                            <div>25</div>
-                                            <div>26</div>
-                                            <div>27</div>
-                                            <div>28</div>
-                                            <div id="today" class="today">29</div>
-                                            <div>30</div>
-                                            <div>31</div>
-                                            <div class="next-date">1</div>
-                                            <div class="next-date">2</div>
-                                            <div class="next-date">3</div>
-                                            <div class="next-date">4</div>
-                                            <div class="next-date">5</div>
-                                            <div class="next-date">6</div>
-                                        </div> -->
-                            </article>
-                        </div>
-                    </div>
-            </div>
-        </section>
+            </section>
+        
+            <!-- Footer starts -->
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>rainCOATE</strong> by <a href="https://github.com/areed98/rainCOAT">Silent Dragons</a>. The website content & source code
+                        is licensed under the MIT License <a href="https://opensource.org/licenses/MIT"></a>.
+                    </p>
+                </div>
+            </footer>
+            <!-- Footer ends -->
 
-    <footer class="footer">
-        <div class="content has-text-centered">
-          <p>
-            <strong>rainCOATE</strong> by <a href="#">Silent Dragons</a>. The source code is licensed
-            <a href="/"></a>. The website content
-            is licensed <a href="/"></a>.
-          </p>
         </div>
-    </footer>
+        <!-- Whole body container ends -->
 
-</div>
-
-<script src = "./assets/js/script.js"></script>
-</body>
+        <!-- Script links -->
+        <script src = "./assets/js/script.js"></script>
+    </body>
 
 </html>
