@@ -68,10 +68,7 @@ li {
     border-radius: 10%;
 }
 /* image styling */
-img{
-    border-radius: 10%;
-    
-}
+
 
 
 .music{
@@ -84,7 +81,7 @@ img{
 }
 /* sports and music box styling */
 #news-boxes{
-    border-radius: 3%;
+    border-radius: 1%;
 }
 
 #search-bar{
