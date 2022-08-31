@@ -7,8 +7,9 @@
 
 .hero{
      background-image: url('../images/herobackground-raincoat.jpg'); 
-     background-size:contain;
+     background-size:cover;
      background-position: 10%;
+     background-repeat: no-repeat;
 }
 
 html {
@@ -17,6 +18,10 @@ html {
 
 body {
     height: 100%;
+}
+
+hr {
+    border: 1px solid rgb(226, 226, 226);
 }
 
 #test {
@@ -29,105 +34,28 @@ body {
 #test2 {
     flex: 1;
 }
-/* calendar "if needed" */
-#calendar-box{
+
+#filterBtn {
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.calendar{
-    width: 45rem;
-    height: 52rem;
-
-}
-.month{
+#clearFilters {
     width: 100%;
-    height: 12rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.2rem;
-    text-align: center;
-
 }
 
-.month i {
-    font-size: 2.5rem;
-    cursor: pointer;
-
-}
-
-.month h1{
-    font-size: 3rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    margin-bottom: 1rem;
-    
-}
-
-.month p{
-    font-size: 1.6rem;
-}
-
-.weekdays{
+.historyBtn {
     width: 100%;
-    height: 5rem;
-    padding:0 0.4rem;
-    display: flex;
-    align-items: center;
+    margin-bottom: 10px;
 }
 
-.weekdays div{
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    width: calc(44.2rem/7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.historyBtn:last-child {
+    margin-bottom: 0px;
 }
 
-.days{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.2rem;
-}
-
-.days div{
-    font-size: 1.4rem;
-    margin: 0.3rem;
-    width: calc(40.2rem/7);
-    height: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-}
-
-.days div:hover{
-    background-color: black;
-    color: aliceblue;
-}
-.prev-date,
-.next-date{
-    opacity: 0.5;
-}
-/* .today{ */
-    /* background-color: bisque; */
-/* } */
-
-/* hover menu */
 
 #drop-text:hover{
     color: black;
 }
-
-
 
 #display-results-box{
     margin-top: 2%;
@@ -159,8 +87,6 @@ img{
     border-radius: 3%;
 }
 
-#top-bar{}
-/* search bar */
 #search-bar{
     padding-bottom: 1%;
 }

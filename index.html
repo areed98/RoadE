@@ -1,224 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <title>roadE</title>
-  <link rel="icon" type="image/x-icon" href="./assets/images/icons8-van-64.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>roadE</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/icons8-van-64.png">
 </head>
 
 <body>
-  <!-- main page container -->
-  <div class="container">
-    <!-- hero/title -->
-    <div class="block">
-      <section class="hero is-large is-info">
-        <div class="hero-body">
-          <p class="title">
-            roadE
-          </p>
-          <p class="subtitle">
-            Lets plan your next live event!
-          </p>
-        </div>
-      </section>
-    </div>
-    <!-- bio -->
-    <div id="top-bar" class="block is-success has-text-white-ter">
-      <article class="message has-background-success has-text-centered">
-        <div class="message-header has-text-centered is-flex-wrap-wrap is-justify-content-space-evenly">
-          
-          <a href="https://github.com/areed98/rainCOAT">Follow Us</a>
-          <p>About Us</p>
-          <a href="mailto:banjosquash@gmail.com">Contact Us</a>
-        </div>
-        <div class="message-body is-light has-text-white">
-          We're just here to help you get there!
-        </div>
-      </article>
-    </div>
+    <!-- main page container -->
+    <div id="test" class="container is-flex-direction-row">
 
-    <div class="block ">
-      <!-- dropdown menu -->
+        <section class="mb-6">
+            <div id="test3" class="block">
+                <!-- hero/title -->
+                <section class="hero is-large is-info">
+                    <div class="hero-body">
+                        <p class="title">
+                            roadE
+                        </p>
+                        <p class="subtitle">
+                            Lets plan your next live event!
+                        </p>
+                    </div>
+                </section>
 
-      <!-- search bar -->
-      <section id="search-bar" class="container is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center is-flex-wrap-wrap">
-        <form>
-          <div class="field has-addons">
-            <div class="control">
-              <input class="input" type="text" placeholder="i.e 'John Mayer'">
             </div>
-            <div class="control">
-              <a class="button has-background-info has-text-white-ter">
-                Search
-              </a>
+            <!-- top bar info -->
+            <div id="test2" class="block is-success has-text-white-ter">
+                <article class="message is-success has-text-centered">
+                    <div class="message-header has-text-centered is-flex-wrap-wrap is-justify-content-space-evenly">
+                        <a href="https://github.com/areed98/rainCOAT">Follow Us</a>
+                        <p>About Us</p>
+                        <a href="mailto:banjosquash@gmail.com">Contact Us</a>
+                    </div>
+                    <div class="message-body is-light">
+                        <p><strong> We're just here to help you get there!</strong> </p>
+                    </div>
+                </article>
             </div>
-          </div>
-        </form>
-        <div class="dropdown is-hoverable">
-          <div class="dropdown-trigger">
-            <button class="button has-background-info has-text-white-ter" aria-haspopup="true" aria-controls="dropdown-menu3">
-              <span>Search by Category</span>
-              <span class="icon is-small">
-                <i aria-hidden="true"></i>
-              </span>
-            </button>
-            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-              <div class="dropdown-content">
-                <a href="#" class="dropdown-item has-text-black">
-                  Music
-                </a>
-                <a href="#" class="dropdown-item has-text-black">
-                  Sports
-                </a>
-                <a href="#" class="dropdown-item has-text-black">
-                  The Arts
-                </a>
-              </div>
+
+            <div class="tile is-ancestor">
+
+                <div class="tile is-parent is-flex-wrap-wrap is-align-content-space-around">
+
+                    <article class="tile is-child box">
+                        <p class="title">Where to go, What to do?</p>
+
+                        <form>
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input id="cityInput" class="input" type="text" placeholder="Desired Location">
+                                </div>
+                                <div class="control">
+                                    <button id="cityButton" type=submit class="button is-info">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <form>
+                            <section id="historyContainer">
+
+                            </section>
+                            <section id="filterOptions">
+
+                            </section>
+
+                            <!-- <hr>
+
+                                    <p class="title">Filter Options</p>
+                                    <div class="field">
+                                        <label class="label">Genre</label>
+                                        <div class="control">
+                                            <div class="select">
+                                                <select id = "genreSelect">
+                                                    <option value="0" selected disabled hidden>Select Genre</option>
+                                                    <option value="1">Music</option>
+                                                    <option value="2">Sports</option>
+                                                    <option value="3">Arts & Theatre</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Keyword</label>
+                                        <div class="control">
+                                            <input id = "keywordInput" class="input" type="text" placeholder="Adele? Golf?">
+                                        </div>
+                                    </div>
+                            
+                                    <div id="search2" class="field">
+                                        <button id="filterBtn" class="button is-success">
+                                            Filter
+                                        </button>
+                                    </div> -->
+                        </form>
+                    </article>
+                    <!-- info boxes -->
+                    <div class="container">
+                        <div id="news-boxes"
+                            class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center has-background-success">
+                            <section id="sports-news"
+                                class="tile is-justify-content-space-evenly is-flex-direction-column">
+                                <h1 class="has-text-centered block"><strong class="has-text-white-ter">Sports
+                                        News</strong>
+                                </h1>
+                                <figure class="image has-text-centered">
+                                    <img class="sports" src="./assets/images/raincoat.jpeg">
+                                    <a class="button block has-background-info has-text-white-ter"
+                                        href="https://www.espn.com/">ESPN News</a>
+                                </figure>
+                        </div>
+                        <div id="news-boxes"
+                            class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center has-background-success">
+                            <section id="entertainment-news"
+                                class="block is-info tile is-justify-content-space-evenly is-flex-direction-column is-flex-wrap-wrap ">
+                                <h1 class="has-text-centered block"><strong class="has-text-white-ter">Entertainment
+                                        News</strong></h1>
+                                <figure class="image has-text-centered">
+                                    <img class="music" src="./assets/images/music.jpeg">
+                                    <a class="button block has-background-info has-text-white-ter"
+                                        href="https://www.rollingstone.com/music/music-news/">Rolling Stones</a>
+                                </figure>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- display events -->
+                <div class="tile is-parent is-8">
+                    <article class="tile is-child box">
+                        <p class="title">Upcoming Events</p>
+                        <ul id="searchResults" class="mt-4 mb-4">
+                            <!-- Search Results go here! -->
+                        </ul>
+
+                        <nav id="eventsNav" class="navbar is-align-items-center">
+                            <!-- Nav goes here! -->
+                        </nav>
+                    </article>
+                </div>
             </div>
-          </div>
-
-        </div>
-      </section>
     </div>
-    <!-- link to sports news -->
-    <div id="news-boxes" class="block is-flex is-flex-wrap-wrap is-justify-content-center is-align-content-center is-align-items-center has-background-success">
-      <section id="sports-news" class="sports-news tile is-justify-content-space-evenly is-flex-direction-column">
-        <h1 class="has-text-centered block"><strong class="has-text-white-ter">Sports News</strong></h1>
-        <figure class="image has-text-centered">
-          <img class="sports" src="./assets/images/raincoat.jpeg">
-          <a class="button block has-background-info has-text-white-ter" href="https://www.espn.com/">ESPN News</a>
-        </figure>
-        
-      </section>
-      <!-- results list -->
-      <section id="display-results-box" class=" is-flex is-flex-direction-column box block is-flex-wrap-wrap">
-        <p class="title has-text-centered">Upcoming Events</p>
+    </section>
 
-        <ul id="display-events">
-
-          <li class="box block">
+    <footer class="footer">
+        <div class="content has-text-centered">
             <p>
-              (Event Name) - 04/03/2022 - Sports
+                <strong>roadE</strong> by <a href="https://github.com/areed98/rainCOAT">Silent Dragons</a>. The source
+                code is licensed
+                <a href="/"></a>. The website content
+                is licensed <a href="/"></a>.
             </p>
-          </li>
-          <li class="box block">
-            <p>
-              (Event Name) - 04/03/2022 - Sports
-            </p>
-          </li>
-          <li class="box block">
-            <p>
-              (Event Name) - 04/03/2022 - Sports
-            </p>
-          </li>
-          <li class="box block">
-            <p>
-              (Event Name) - 04/03/2022 - Sports
-            </p>
-          </li>
-          <li class="box block">
-            <p>
-              (Event Name) - 04/03/2022 - Sports
-            </p>
-          </li>
-        </ul>
-        <!-- modal -->
-
-
-        <div class="modal">
-          <div class="modal-background"></div>
-          <div class="modal-card">
-            <header class="modal-card-head">
-              <p class="modal-card-title has-text-centered">Braves vs Pirates</p>
-              <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-              <ul id="display-events">
-      
-                <li class="box block">
-                  <p>
-                    time/date
-                  </p>
-                </li>
-                <li class="box block">
-                  <p>
-                   location
-                  </p>
-                </li>
-                <li class="box block">
-                  <p>
-                    forecast
-                  </p>
-                </li>
-                <li class="box block">
-                 <img src="./assets/images/raincoat.jpeg" alt="">
-                </li>
-                
-              </ul>
-            </section>
-
-          </div>
+            <p>* Weather data only avaliable 300 days into the future *</p>
         </div>
-
-
-
-        <!-- pagintation -->
-        <section class="box block">
-        <nav class="pagination" role="navigation" aria-label="pagination">
-          <a class="pagination-previous has-background-info has-text-white-ter" title="This is the first page">Previous</a>
-          <a class="pagination-next has-background-info has-text-white-ter">Next page</a>
-          <ul class="pagination-list">
-            <li>
-              <a class="pagination-link is-current has-background-info" aria-label="Page 1" aria-current="page">1</a>
-            </li>
-            <li>
-              <a class="pagination-link" aria-label="Goto page 2">2</a>
-            </li>
-            <li>
-              <a class="pagination-link" aria-label="Goto page 3">3</a>
-            </li>
-          </ul>
-        </nav>
-      </section>
-        </section>
-
-        <!-- link to entertainment -->
-        <section id="news-boxes" class="block is-info tile is-justify-content-space-evenly is-flex-direction-column is-flex-wrap-wrap " >
-          <h1 class="has-text-centered block"><strong class="has-text-white-ter">Entertainment News</strong></h1>
-          <figure class="image has-text-centered">
-            <img class="music" src="./assets/images/music.jpeg">
-            <a class="button block has-background-info has-text-white-ter" href="https://www.rollingstone.com/music/music-news/">Rolling Stones</a>
-          </figure>
-        </section>
-      
-      
-    </div>
-
-
-
-    <!-- footer with links -->
-    <footer class="footer has-background-grey-dark has-text-centered has-text-white-ter">
-      <div class="content has-text-centered">
-        <p id="footer-content" class="has-text-white-er">
-          roadE by <a href="https://github.com/areed98/rainCOAT">Silent Dragons</a>. The source code is
-          licensed
-          <a href="/"></a>. The website content
-          is licensed <a href="/"></a>.
-        </p>
-        <p>* Weather data only avaliable 300 days into the future *</p>
-      </div>
     </footer>
-  </div>
+
+    </div>
+
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
