@@ -109,6 +109,7 @@ var filterBtnHandler = function(event) {
     // Create a case to check (for future filter expansion) to ensure the filter does nothing when nothing is selected
     // At the moment only one case exists
     var case1 = false;
+    var case2 = false;
 
     // Set global variable equal to the keyword the user input
     keyword = keywordInputEl.value;
@@ -116,6 +117,8 @@ var filterBtnHandler = function(event) {
     // If the keyword is empty, set the keyword to "", this way the user can clear previous filters
     if (keywordInputEl.value == null || keywordInputEl.value == "") {
         keyword = "";
+    } else {
+        case2 = true;
     }
 
     // If the genre select menu has any other options selected than the default, then set case 1 to true
@@ -124,7 +127,7 @@ var filterBtnHandler = function(event) {
     }
 
     // If case1 is true, then run the filterSelect function
-    if (case1 == true) {
+    if (case1 == true || case2 == true) {
         filterSelect();
     }  
 
@@ -208,6 +211,7 @@ var filterSelect = function() {
     var sportsID = "KZFzniwnSyZfZ7v7nE";
     var musicID = "KZFzniwnSyZfZ7v7nJ";
     var artsID = "KZFzniwnSyZfZ7v7na";
+    var noID = "";
 
     // Checks which genre is selected and then calls the filter fetch function with that ID
     if(selectEl.value==1) {
@@ -216,6 +220,8 @@ var filterSelect = function() {
         filterFetch(sportsID);
     } else if(selectEl.value==3) {
         filterFetch(artsID);
+    } else {
+        filterFetch(noID);
     }
 
 };
