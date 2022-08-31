@@ -22,6 +22,12 @@ var pageData = {
     totalPages: ""
 };
 
+var weatherObj = {};
+
+// var wapiKey = "5XBMXPEKZSXAAJ3HZEUBPKXY4";
+var wapiKey = "WXA7ZF59PVGG2FRSLSH256QVA";
+var wapiPrefix = "?unitGroup=us&key=";
+
 var apiKey = "M3zlk7OCkBc7AhFeAlbcYBIvwTxFzGlB";
 var prefix = "https://app.ticketmaster.com";
 var apiPrefix = "&apikey=";
@@ -308,12 +314,17 @@ var ticketMasterStats = function(data) {
         var segment = data._embedded.events[i].classifications[0].segment.name
         var date = data._embedded.events[i].dates.start.localDate
         var url = data._embedded.events[i].url
+        var imageURL = data._embedded.events[i].images[0].url
+        var time = data._embedded.events[i].dates.start.localTime;
 
         var eventStats = {
+            id: i,
             name: name,
             segment: segment,
             date: date,
-            url: url
+            url: url,
+            image: imageURL,
+            time: time
         }
 
         upcomingEventsConstructor(eventStats);
@@ -336,8 +347,52 @@ var upcomingEventsConstructor = function(data) {
     var pEl = document.createElement("p");
     liEl.classList.add("box");
 
+    var formattedTime = "";
+
+    //console.log(data.time);
+
+    if (data.time===undefined || data.time=== null || data.time === "") {
+        formattedTime = "Time not disclosed";
+    } else {
+        // Credit: https://stackoverflow.com/questions/29206453/best-way-to-convert-military-time-to-standard-time-in-javascript
+        
+        var time = data.time; // your input
+
+        time = time.split(':'); // convert to array
+
+        // fetch
+        var hours = Number(time[0]);
+        var minutes = Number(time[1]);
+        var seconds = Number(time[2]);
+
+        // calculate
+        var timeValue;
+
+        if (hours > 0 && hours <= 12) {
+        timeValue= "" + hours;
+        } else if (hours > 12) {
+        timeValue= "" + (hours - 12);
+        } else if (hours == 0) {
+        timeValue= "12";
+        }
+        
+        timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
+        timeValue += (seconds < 10) ? ":0" + seconds : ":" + seconds;  // get seconds
+        timeValue += (hours >= 12) ? " P.M." : " A.M.";  // get AM/PM
+
+        formattedTime = timeValue;
+
+    }
+
+    
+
     pEl.textContent = data.name + " - " + data.date + " - " + data.segment;
     pEl.setAttribute("data-date", data.date);
+    pEl.setAttribute("data-name", data.name);
+    pEl.setAttribute("id", data.id);
+    pEl.setAttribute("data-image", data.image);
+    pEl.setAttribute("data-url", data.url);
+    pEl.setAttribute("data-time", formattedTime);
 
     liEl.appendChild(pEl);
 
@@ -710,8 +765,221 @@ var historyBtnHandler = function(event) {
 
     var text = target.textContent;
     ticketMasterFetch(text);
+    filterConstructor();
 
 };
+
+var modalConstructor = function(dataObj) {
+
+    var modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.classList.add("is-active");
+
+    var modalBackground = document.createElement("div");
+    modalBackground.classList.add("modal-background");
+
+    var modalCard = document.createElement("div");
+    modalCard.classList.add("modal-card");
+
+    var modalheader = document.createElement("header");
+    modalheader.classList.add("modal-card-head");
+
+    var modalTitle = document.createElement("p");
+    modalTitle.classList.add("modal-card-title");
+    modalTitle.classList.add("has-text-centered");
+    modalTitle.textContent = dataObj.name;
+    var modalClose = document.createElement("button");
+    modalClose.classList.add("delete");
+    modalClose.setAttribute("aria-label", "close");
+
+    var modalBody = document.createElement("section");
+    modalBody.classList.add("modal-card-body");
+
+    var modalUl = document.createElement("ul");
+    modalUl.setAttribute("id", "display-events");
+
+    var modalboxBlock1 = document.createElement("li");
+    modalboxBlock1.classList.add("box");
+    modalboxBlock1.classList.add("block");
+    var modalP1 = document.createElement("p");
+    modalP1.classList.add("subtitle");
+    modalP1.textContent = dataObj.date + " | " + dataObj.time;
+
+    var modalboxBlock2 = document.createElement("li");
+    var imageEl = document.createElement("img");
+    imageEl.setAttribute("src", dataObj.image);
+    imageEl.style.backgroundSize = "cover";
+    imageEl.style.width = "100%";
+    modalboxBlock2.classList.add("box");
+    modalboxBlock2.classList.add("block"); 
+    
+    if (weatherObj.id === 0) {
+
+        var modalboxBlock3 = document.createElement("li");
+        modalboxBlock3.classList.add("box");
+        modalboxBlock3.classList.add("block");
+        var modaldivEl3 = document.createElement("div");
+        modaldivEl3.style.display = "flex";
+        modaldivEl3.style.justifyContent = "space-between";
+        modaldivEl3.style.alignItems = "center";
+        var modalP3 = document.createElement("p");
+        modalP3.textContent = "Forecast: ";
+        modalP3.classList.add("subtitle");
+        modalP3.style.margin = "0px";
+        var image3El = document.createElement("img");
+        image3El.setAttribute("src", weatherObj.icon);
+        image3El.style.width = "8%";
+        var modalP3_2 = document.createElement("li");
+        modalP3_2.style.marginBottom = "5px";
+        var modalP3_3 = document.createElement("li");
+        var modalP3_4 = document.createElement("li");
+        var modalP3_5 = document.createElement("li");
+        var modalP3_6 = document.createElement("li");
+        modalP3_2.textContent = weatherObj.description;
+        modalP3_3.textContent = weatherObj.rainProb;
+        modalP3_4.textContent = weatherObj.humidity;
+        modalP3_5.textContent = weatherObj.temp;
+        modalP3_6.textContent = weatherObj.uvindex;
+        var ulEl = document.createElement("ul");
+        ulEl.classList.add("content");
+        var hrEl = document.createElement("hr");
+        hrEl.style.margin = "8px 0px 8px 0px";
+
+        modalUl.appendChild(modalboxBlock1);
+        modalUl.appendChild(modalboxBlock2);
+        modalUl.appendChild(modalboxBlock3);
+        modaldivEl3.appendChild(modalP3);
+        modaldivEl3.appendChild(image3El);
+        modalboxBlock3.appendChild(modaldivEl3);
+        ulEl.appendChild(modalP3_2);
+        ulEl.appendChild(modalP3_3);
+        ulEl.appendChild(modalP3_4);
+        ulEl.appendChild(modalP3_5);
+        ulEl.appendChild(modalP3_6);
+        modalboxBlock3.appendChild(hrEl);
+        modalboxBlock3.appendChild(ulEl);
+
+    } else {
+
+        var modalboxBlock3 = document.createElement("li");
+        modalboxBlock3.classList.add("box");
+        modalboxBlock3.classList.add("block");
+        var modalP3 = document.createElement("p");
+        modalP3.textContent = "Weather data limit reached!";
+        modalP3.style.color  = "red";
+
+        modalboxBlock3.appendChild(modalP3);
+        modalUl.appendChild(modalboxBlock1);
+        modalUl.appendChild(modalboxBlock2);
+        modalUl.appendChild(modalboxBlock3);
+
+    }
+
+    var modalboxBlock4 = document.createElement("li");
+    modalboxBlock4.classList.add("box");
+    modalboxBlock4.classList.add("block");
+    var modalA4 = document.createElement("a");
+    modalA4.textContent = "Book tickets here!";
+    modalA4.setAttribute("href", dataObj.url);
+    modalA4.setAttribute("target", "_blank");
+
+
+    modal.appendChild(modalBackground);
+    modal.appendChild(modalCard);
+
+    modalCard.appendChild(modalheader);
+
+    modalheader.appendChild(modalTitle);
+    modalheader.appendChild(modalClose);
+
+    modalCard.appendChild(modalBody);
+
+    modalBody.appendChild(modalUl);
+
+    modalboxBlock1.appendChild(imageEl);
+
+    modalboxBlock2.appendChild(modalP1);
+
+    modalUl.appendChild(modalboxBlock4);
+    modalboxBlock4.appendChild(modalA4);
+
+    modalClose.addEventListener("click", modalCloseHandler);
+
+    document.body.appendChild(modal);
+};
+
+var modalBtnHandler = function(event) {
+
+    var target = event.target;
+    console.log(target);
+
+    if (target.hasAttribute("data-date")) {
+
+        var dataObject = {
+            name: target.dataset.name,
+            date: target.dataset.date, 
+            id: target.dataset.id,
+            image: target.dataset.image,
+            time: target.dataset.time,
+            url: target.dataset.url
+        }
+
+        weatherFetch(target.dataset.date, dataObject);
+
+    }
+
+};
+
+var modalCloseHandler = function() {
+    var modalEl = document.querySelector(".modal");
+    modalEl.remove();
+};
+
+var weatherFetch = function(weatherDate, dataObject) {
+
+    fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${weatherDate}/${weatherDate}${wapiPrefix}${wapiKey}&unitGroup=us&contentType=json`)
+    .then(function (res) {
+    return res.json();
+    })
+    .then(function (data) {
+
+        console.log(data);
+
+        var humidity = "- Humidity: " + data.days[0].humidity + "%";
+        var uvindex = "- UV index: " + data.days[0].uvindex;
+        var rainProb = "- Precip. probability: " + data.days[0].precipprob + "%";
+        var temp = "- Temperature: " + data.days[0].temp + "°F";
+
+        weatherObj = {
+
+            id: 0,
+            description: data.days[0].description,
+            icon: "./assets/images/" + data.days[0].icon + ".png",
+            humidity: humidity,
+            rainProb: rainProb,
+            temp: temp,
+            uvindex: uvindex
+
+        };
+
+    }).then(function() {
+
+        modalConstructor(dataObject);
+
+    })
+    .catch(function() {
+
+        weatherObj = {
+            id: 1
+        }
+
+        modalConstructor(dataObject);
+
+    })
+
+};
+
+searchResultsEl.addEventListener("click", modalBtnHandler);
 
 loadHistory();
 cityButtonEl.addEventListener("click", cityInputHandler);
@@ -719,10 +987,7 @@ cityButtonEl.addEventListener("click", cityInputHandler);
 /* 
 =========
 TO DO:
-- Potentially implement weather statistics
-- Implement modal functionality when clicking to view event details
 - Clean up and comment code
-- invisible chuck norris el?
 ==========
 
 */
