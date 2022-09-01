@@ -7,6 +7,7 @@ var searchNavEl = document.querySelector("#eventsNav");
 var filterOptionsEl = document.querySelector("#filterOptions");
 var historyContainerEl = document.querySelector("#historyContainer");
 var warningRefEl = document.querySelector("#warningRef");
+var filterFormEl = document.querySelector("#filterForm");
 
 // Global variables
 var cityHistory = [];
@@ -86,6 +87,7 @@ var cityInputHandler = function(event) {
     
     //If the text is NOT empty then..
     } else {
+
         // Clear the value
         cityInputEl.value = "";
         // Use the stored value to fetch (should be a city name)
@@ -117,6 +119,7 @@ var filterBtnHandler = function(event) {
     // If the keyword is empty, set the keyword to "", this way the user can clear previous filters
     if (keywordInputEl.value == null || keywordInputEl.value == "") {
         keyword = "";
+        case2 = true;
     } else {
         case2 = true;
     }
@@ -139,6 +142,7 @@ var clearFilterBtnHandler = function(event) {
     // Prevent default form submission event
     event.preventDefault();
     
+    console.log("THIS!!!!!!!");
     // Select elements
     var keywordInputEl = document.querySelector("#keywordInput");
     var selectEl = document.querySelector("#genreSelect");
@@ -919,7 +923,6 @@ var filterConstructor = function() {
 
     // Creates elements
     var hrEl2 = document.createElement("hr");
-    var hrEl = document.createElement("hr");
     var pEl = document.createElement("p");
     var divEl1 = document.createElement("div");
     var labelEl1 = document.createElement("label");
@@ -975,6 +978,7 @@ var filterConstructor = function() {
     buttonEl.classList.add("is-success");
     buttonEl.setAttribute("id", "filterBtn");
     buttonEl.textContent = "Filter";
+    buttonEl.setAttribute("type", "submit");
     buttonEl2.textContent = "Clear Filters";
     buttonEl2.setAttribute("id", "clearFilters");
     buttonEl2.classList.add("button");
@@ -982,7 +986,6 @@ var filterConstructor = function() {
     buttonEl2.classList.add("mt-2");
 
     // Appends elements
-    filterOptionsEl.appendChild(hrEl);
     filterOptionsEl.appendChild(pEl);
     
     divEl1.appendChild(labelEl1);
@@ -1012,6 +1015,7 @@ var filterConstructor = function() {
     // Adds event listeners
     buttonEl.addEventListener("click", filterBtnHandler);
     buttonEl2.addEventListener("click", clearFilterBtnHandler);
+    filterFormEl.addEventListener("submit", filterBtnHandler, false);
 
 };
 
